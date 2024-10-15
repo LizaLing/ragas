@@ -23,7 +23,6 @@ if t.TYPE_CHECKING:
     from ragas.testset.synthesizers import QueryDistribution
     from ragas.testset.synthesizers.base import BaseScenario
 
-print(222)
 RAGAS_TESTSET_GENERATION_GROUP_NAME = "ragas testset generation"
 
 
@@ -88,7 +87,7 @@ class TestsetGenerator:
         # apply transforms and update the knowledge graph
         apply_transforms(kg, transforms)
         self.knowledge_graph = kg
-        r = self.generate(
+        return self.generate(
             testset_size=testset_size,
             query_distribution=query_distribution,
             run_config=run_config,
@@ -96,7 +95,6 @@ class TestsetGenerator:
             with_debugging_logs=with_debugging_logs,
             raise_exceptions=raise_exceptions,
         )
-        return r
 
     def generate(
         self,
